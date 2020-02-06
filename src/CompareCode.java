@@ -59,6 +59,8 @@ public class CompareCode {
         String filename;
 
         System.out.println();
+
+
         for(int i=0; i<codes.size();i++){
             for(int j=0; j<codes.size(); j++){
                 compareFiles(i, j, codes.get(i), codes.get(j));
@@ -66,7 +68,7 @@ public class CompareCode {
             System.out.println();
         }
 
-        //compareFiles("Diane_main.java", "Diane_main.java");
+        //compareFiles(0, 0, "Teddy_main.java", "Rhennie_main.cpp");
     }
 
     private void getFilenames(){
@@ -90,8 +92,10 @@ public class CompareCode {
                 file2 = "C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\Submissions\\" + codes.get(count + 1);
 
              */
-            BufferedReader reader1 = new BufferedReader(new FileReader(file1));
-            BufferedReader reader2 = new BufferedReader(new FileReader(file2));
+            InputStream firstFile = new FileInputStream(file1);
+            InputStream secondFile = new FileInputStream(file2);
+            BufferedReader reader1 = new BufferedReader(new InputStreamReader(firstFile));
+            BufferedReader reader2 = new BufferedReader(new InputStreamReader(secondFile));
             int i = 0;
             double score = 0;
             double avg;
@@ -104,14 +108,16 @@ public class CompareCode {
             int lineCount1 = 0;
             int lineCount2 = 0;
             while((line1=reader1.readLine())!=null){
-                if((!line1.equals(""))&&(!line1.contains("}"))&&(!line1.equals("{"))) {
+                if((!line1.equals(""))&&(!line1.equals("\t"))&&(!line1.contains("}"))&&(!line1.equals("{"))) {
                     line1 = line1.replaceAll("\\s+","");
+                    //line1 = line1.replace("\n", "");
                     lineCount1++;
                     //System.out.println("Iteration " + i);
                     //System.out.println(line1);
                     while ((line2 = reader2.readLine()) != null) {
-                        if ((!line2.equals(""))&&(!line2.contains("}"))&&(!line2.equals("{"))) {
+                        if ((!line2.equals(""))&&(!line2.equals("\t"))&&(!line2.contains("}"))&&(!line2.equals("{"))) {
                             line2 = line2.replaceAll("\\s+","");
+                            //line2 = line2.replace("\n", "");
                             //System.out.println(line2);
                             if(lineCount1==1) lineCount2++;
                             if ((line1.equals(line2))) {
@@ -125,6 +131,7 @@ public class CompareCode {
                     i++;
                 }
             }
+
             /*
             System.out.println(score);
             System.out.println(lineCount1);
@@ -132,13 +139,14 @@ public class CompareCode {
 
              */
 
+
             avg = (lineCount1+lineCount2)/2;
             if(score>avg) grade = 100;
             else grade = (score/avg)*100;
             System.out.println(thisfile + " - " + comparefile);
             System.out.println("  The programs are " + (Math.round(grade * 100.0) / 100.0) + "% similar!");
             //compareFiles();
-            writeToFile(thisfile, y, grade);
+            //writeToFile(thisfile, y, grade);
 
     }
 
