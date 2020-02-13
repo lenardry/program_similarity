@@ -67,8 +67,7 @@ public class CompareCode {
             }
             System.out.println();
         }
-
-        //compareFiles(0, 0, "Teddy_main.java", "Rhennie_main.cpp");
+        //compareFiles(0, 0, "Rhennie_main.cpp", "Matthew_main.cpp");
     }
 
     private void getFilenames(){
@@ -96,42 +95,70 @@ public class CompareCode {
             InputStream secondFile = new FileInputStream(file2);
             BufferedReader reader1 = new BufferedReader(new InputStreamReader(firstFile));
             BufferedReader reader2 = new BufferedReader(new InputStreamReader(secondFile));
-            int i = 0;
+            //int i = 0;
             double score = 0;
             double avg;
             double grade;
 
+            /*
             StringBuilder code1 = new StringBuilder();
             StringBuilder code2 = new StringBuilder();
+             */
+            ArrayList < String > code1 = new ArrayList < String > ();
+            ArrayList < String > code2 = new ArrayList < String > ();
             String line1 = "";
             String line2 = "";
             int lineCount1 = 0;
             int lineCount2 = 0;
+            /*
             while((line1=reader1.readLine())!=null){
+                line1 = line1.replaceAll("\\s+","");
+                if((!line1.equals(""))&&(!line1.equals("\t"))&&(!line1.contains("}"))&&(!line1.equals("{"))){
+                    //System.out.println(line1);
+                    code1.add(line1);
+                }
+            }
+            while((line2=reader2.readLine())!=null){
+                line2 = line2.replaceAll("\\s+","");
+                if ((!line2.equals(""))&&(!line2.equals("\t"))&&(!line2.contains("}"))&&(!line2.equals("{"))){
+                    System.out.println(line2);
+                    code2.add(line2);
+                }
+            }
+           */
+            while((line1=reader1.readLine())!=null){
+                line1 = line1.replaceAll("\\s+","");
                 if((!line1.equals(""))&&(!line1.equals("\t"))&&(!line1.contains("}"))&&(!line1.equals("{"))) {
-                    line1 = line1.replaceAll("\\s+","");
                     //line1 = line1.replace("\n", "");
                     lineCount1++;
                     //System.out.println("Iteration " + i);
                     //System.out.println(line1);
                     while ((line2 = reader2.readLine()) != null) {
+                        line2 = line2.replaceAll("\\s+","");
                         if ((!line2.equals(""))&&(!line2.equals("\t"))&&(!line2.contains("}"))&&(!line2.equals("{"))) {
-                            line2 = line2.replaceAll("\\s+","");
                             //line2 = line2.replace("\n", "");
                             //System.out.println(line2);
                             if(lineCount1==1) lineCount2++;
                             if ((line1.equals(line2))) {
-                                //System.out.println(line1);
+                                //System.out.println(line2);
                                 score++;
                                 //System.out.println(score);
                             }
                         }
                     }
                     reader2 = new BufferedReader(new FileReader(file2));
-                    i++;
+                    //i++;
                 }
             }
 
+            /*
+            for(int i=0; i<code1.size();i++){
+                for(int j=0; j<code2.size();j++){
+                    if(code1.get(i).equals(code2.get(j))){
+                        score++;
+                    }
+                }
+            }
             /*
             System.out.println(score);
             System.out.println(lineCount1);
