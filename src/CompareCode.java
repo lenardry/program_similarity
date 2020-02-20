@@ -124,7 +124,7 @@ public class CompareCode {
         }
     }
 
-    private void compareFiles(String folder1, String folder2, String thisfile, String comparefile) throws IOException {
+    public void compareFiles(String folder1, String folder2, String thisfile, String comparefile) throws IOException {
 
             String file1 = "C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\GitHubSubmissions\\" + folder1 + "\\" + thisfile;
             String file2 = "C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\GitHubSubmissions\\" + folder2 + "\\" + comparefile;
@@ -247,10 +247,9 @@ public class CompareCode {
         System.out.println("  The programs are " + Math.round((grade*100)/100) + "% similar!");
             //compareFiles();
             //writeToFile(thisfile, y, grade);
-
     }
 
-    private void compareFiles(String thisfile, String comparefile) throws IOException {
+    public double compareFiles(String thisfile, String comparefile) throws IOException {
 
         String file1 = "C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\Submissions\\" + thisfile;
         String file2 = "C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\Submissions\\" + comparefile;
@@ -360,7 +359,7 @@ public class CompareCode {
 
          */
         grade = getGrade(code1Words, code2Words);
-        grade = grade *100;
+
         //System.out.println(grade);
         /*
         score = equalWords.size();
@@ -369,11 +368,14 @@ public class CompareCode {
         else grade = (score/avg)*100;
 
          */
+        /*
         System.out.println(thisfile + " - " + comparefile);
-        System.out.println("  The programs are " + Math.round((grade*100)/100) + "% similar!");
+        System.out.println("Grade: " + grade);
+
+         */
         //compareFiles();
         //writeToFile(thisfile, y, grade);
-
+        return grade;
     }
 
     private double getGrade(ArrayList code1Words, ArrayList code2Words){

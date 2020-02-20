@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="inputCodeAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InputCodeController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutY="-1.0" prefHeight="807.0" prefWidth="1000.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0" style="-fx-background-color: #1B6CD7;">
+               <children>
+                  <Button fx:id="homeButton" mnemonicParsing="false" onAction="#onHomePress" prefHeight="50.0" prefWidth="130.0" text="Home" />
+                  <Button fx:id="inputCodesButton" mnemonicParsing="false" onAction="#onInputPress" prefHeight="50.0" prefWidth="130.0" text="Input Codes" />
+                  <Button fx:id="seeLibraryButton" mnemonicParsing="false" onAction="#onSeeLibrary" prefHeight="50.0" prefWidth="130.0" text="See Library" />
+                  <Button fx:id="simMatrixButton" mnemonicParsing="false" onAction="#onSimMatrixPress" prefHeight="50.0" prefWidth="140.0" text="Similarity Matrix" />
+               </children>
+            </HBox>
+            <VBox alignment="TOP_CENTER" prefHeight="702.0" prefWidth="1000.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                     <children>
+                        <Label text="Name:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="filenameInput" prefHeight="31.0" prefWidth="348.0" />
+                        <Label text=".txt" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" prefHeight="495.0" prefWidth="1000.0" spacing="20.0">
+                     <children>
+                        <Label text="Code:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="codeInputField" prefHeight="614.0" prefWidth="802.0" />
+                     </children>
+                  </HBox>
+                  <VBox alignment="CENTER" prefHeight="117.0" prefWidth="1000.0" spacing="10.0">
+                     <children>
+                        <Button fx:id="submitButton" mnemonicParsing="false" onAction="#onSubmit" text="Submit" />
+                        <Label fx:id="confirmationLabel">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

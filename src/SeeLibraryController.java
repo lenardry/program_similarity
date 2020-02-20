@@ -43,7 +43,9 @@ public class SeeLibraryController {
         seeLibraryAnchorPane.getChildren().setAll(seeLibaryPane);
     }
 
-    public void onSimMatrixPress(ActionEvent actionEvent) {
+    public void onSimMatrixPress(ActionEvent actionEvent) throws IOException {
+        AnchorPane seeLibaryPane = FXMLLoader.load(getClass().getResource("/SimMatrix.fxml"));
+        seeLibraryAnchorPane.getChildren().setAll(seeLibaryPane);
     }
 
     public void onSelectFile1(ActionEvent actionEvent) throws IOException {

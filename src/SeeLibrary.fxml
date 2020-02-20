@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="seeLibraryAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SeeLibraryController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutY="-1.0" prefHeight="807.0" prefWidth="1000.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0" style="-fx-background-color: #1B6CD7;">
+               <children>
+                  <Button fx:id="homeButton" mnemonicParsing="false" onAction="#onHomePress" prefHeight="50.0" prefWidth="130.0" text="Home" />
+                  <Button fx:id="inputCodesButton" mnemonicParsing="false" onAction="#onInputPress" prefHeight="50.0" prefWidth="130.0" text="Input Codes" />
+                  <Button fx:id="seeLibraryButton" mnemonicParsing="false" onAction="#onSeeLibrary" prefHeight="50.0" prefWidth="130.0" text="See Library" />
+                  <Button fx:id="simMatrixButton" mnemonicParsing="false" onAction="#onSimMatrixPress" prefHeight="50.0" prefWidth="140.0" text="Similarity Matrix" />
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="702.0" prefWidth="1000.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="702.0" prefWidth="1000.0" spacing="10.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="450.0" spacing="10.0">
+                           <children>
+                              <Label text="Code 1" />
+                              <TextArea fx:id="code1Display" prefHeight="556.0" prefWidth="377.0" />
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="seeFileInput1" />
+                                    <Button fx:id="selectFile1" mnemonicParsing="false" onAction="#onSelectFile1" text="Select File" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="450.0" spacing="10.0">
+                           <children>
+                              <Label text="Code 2" />
+                              <TextArea fx:id="code2Display" prefHeight="556.0" prefWidth="280.0" />
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="seeFileInput2" />
+                                    <Button fx:id="selectFile2" mnemonicParsing="false" onAction="#onSelectFile2" text="Select File" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

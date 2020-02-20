@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="simMatrixAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SimMatrixController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutY="-1.0" prefHeight="807.0" prefWidth="1000.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0" style="-fx-background-color: #1B6CD7;">
+               <children>
+                  <Button fx:id="homeButton" mnemonicParsing="false" onAction="#onHomePress" prefHeight="50.0" prefWidth="130.0" text="Home" />
+                  <Button fx:id="inputCodesButton" mnemonicParsing="false" onAction="#onInputPress" prefHeight="50.0" prefWidth="130.0" text="Input Codes" />
+                  <Button fx:id="seeLibraryButton" mnemonicParsing="false" onAction="#onSeeLibrary" prefHeight="50.0" prefWidth="130.0" text="See Library" />
+                  <Button fx:id="simMatrixButton" mnemonicParsing="false" onAction="#onSimMatrixPress" prefHeight="50.0" prefWidth="140.0" text="Similarity Matrix" />
+               </children>
+            </HBox>
+            <HBox prefHeight="702.0" prefWidth="1000.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="702.0" prefWidth="500.0" spacing="10.0">
+                     <children>
+                        <Label text="File List" />
+                        <ListView fx:id="fileList" prefHeight="434.0" prefWidth="480.0" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <TextField fx:id="selectFolderInput" prefHeight="31.0" prefWidth="243.0" />
+                              <Button fx:id="selectFolderButton" mnemonicParsing="false" onAction="#onSelectFolder" text="Select Folder" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Button fx:id="addButton" mnemonicParsing="false" onAction="#onAdd" text="Add" />
+                              <Button fx:id="selectAllButton" mnemonicParsing="false" onAction="#onSelectAll" text="Select All" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="500.0" spacing="10.0">
+                     <children>
+                        <Label text="Selected FIles" />
+                        <ListView fx:id="selectedFiles" prefHeight="434.0" prefWidth="480.0" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Button fx:id="removeButton" mnemonicParsing="false" onAction="#onRemove" text="Remove" />
+                              <Button fx:id="removeAllButton" mnemonicParsing="false" onAction="#onRemoveAll" text="Remove All" />
+                              <Button fx:id="submitButton" mnemonicParsing="false" onAction="#onSubmit" text="Submit" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

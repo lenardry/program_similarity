@@ -36,7 +36,9 @@ public class InputCodeController {
         inputCodeAnchorPane.getChildren().setAll(seeLibaryPane);
     }
 
-    public void onSimMatrixPress(ActionEvent actionEvent) {
+    public void onSimMatrixPress(ActionEvent actionEvent) throws IOException {
+        AnchorPane seeLibaryPane = FXMLLoader.load(getClass().getResource("/SimMatrix.fxml"));
+        inputCodeAnchorPane.getChildren().setAll(seeLibaryPane);
     }
 
     public void onSubmit(ActionEvent actionEvent) throws IOException {
