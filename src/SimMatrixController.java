@@ -4,10 +4,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldListCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -39,6 +36,7 @@ public class SimMatrixController implements Initializable {
     public TextField selectFolderInput;
     public Button selectFolderButton;
     public Button removeAllButton;
+    public Label promptLabel;
 
     public void onHomePress(ActionEvent actionEvent) throws IOException {
         AnchorPane thisPane = FXMLLoader.load(getClass().getResource("/MainMenu.fxml"));
@@ -90,6 +88,7 @@ public class SimMatrixController implements Initializable {
     }
 
     public void onSubmit(ActionEvent actionEvent) throws IOException {
+        promptLabel.setText("Processing...");
         MatrixController matrix = new MatrixController();
         matrix.setList(selectedFiles);
         AnchorPane seeLibaryPane = FXMLLoader.load(getClass().getResource("/Matrix.fxml"));

@@ -1,8 +1,12 @@
 
 
+import com.sun.prism.shader.Solid_TextureYV12_AlphaTest_Loader;
+
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class CompareCode {
@@ -112,19 +116,27 @@ public class CompareCode {
         }
     }
 
-    private void compareFolders(String folder1, String folder2) throws IOException {
+    public ArrayList<Double> compareFolders(String folder1, String folder2) throws IOException {
         File firstFolder = new File("C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\GitHubSubmissions\\" + folder1);
         File secondFolder = new File("C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\GitHubSubmissions\\" + folder2);
         File[] fileList1 = firstFolder.listFiles();
         File[] fileList2 = secondFolder.listFiles();
+        int x = 0;
+        double[][] grades = new double[100][100];
+        ArrayList<Double> folderGrades = new ArrayList<>();
         for(int i = 0; i<fileList1.length; i++){
             for(int j = 0; j<fileList2.length; j++){
-                compareFiles(folder1, folder2, fileList1[i].getName(), fileList2[j].getName());
+                folderGrades = compareFiles(i, j, folderGrades, folder1, folder2, fileList1[i].getName(), fileList2[j].getName());
             }
+            //grades[i][x]= Collections.max(folderGrades);
+            //System.out.println(grades[i][x]);
+            //x++;
         }
+        //System.out.println(folderGrades);
+        return folderGrades;
     }
 
-    public void compareFiles(String folder1, String folder2, String thisfile, String comparefile) throws IOException {
+    public ArrayList<Double> compareFiles(int i, int j, ArrayList<Double> folderGrades, String folder1, String folder2, String thisfile, String comparefile) throws IOException {
 
             String file1 = "C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\GitHubSubmissions\\" + folder1 + "\\" + thisfile;
             String file2 = "C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\GitHubSubmissions\\" + folder2 + "\\" + comparefile;
@@ -234,7 +246,8 @@ public class CompareCode {
 
          */
         grade = getGrade(code1Words, code2Words);
-        grade = grade *100;
+        //System.out.println(grade);
+        folderGrades.add(grade);
         //System.out.println(grade);
         /*
         score = equalWords.size();
@@ -243,10 +256,14 @@ public class CompareCode {
         else grade = (score/avg)*100;
 
          */
+        /*
         System.out.println(thisfile + " - " + comparefile);
         System.out.println("  The programs are " + Math.round((grade*100)/100) + "% similar!");
+
+         */
             //compareFiles();
             //writeToFile(thisfile, y, grade);
+        return folderGrades;
     }
 
     public double compareFiles(String thisfile, String comparefile) throws IOException {

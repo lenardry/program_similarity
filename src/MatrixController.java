@@ -19,6 +19,8 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -66,6 +68,7 @@ public class MatrixController implements Initializable{
         theMatrix = new GridPane();
         CompareCode compare = new CompareCode();
         List<String> files = codes;
+        ArrayList<Double> folderGrades = new ArrayList<Double>();
 
         for(int i=0; i<files.size(); i++){
             theMatrix.addRow(i);
@@ -85,7 +88,12 @@ public class MatrixController implements Initializable{
         }
         for(int i = 1; i<files.size()+1;i++){
             for(int j=1; j<files.size()+1; j++){
-                grade = compare.compareFiles(files.get(i-1), files.get(j-1));
+                if((files.get(i-1).endsWith(".cpp") || (files.get(i-1).endsWith(".java") || (files.get(i-1).endsWith(".fxml"))))){
+                    grade = compare.compareFiles(files.get(i-1), files.get(j-1));
+                }
+                else{
+                    grade = Collections.max(compare.compareFolders(files.get(i-1), files.get(j-1)));
+                }
                 Label gradeLabel = new Label(df.format(grade));
                 gradeLabel.setFont(new Font(15));
                 VBox root = new VBox();
