@@ -92,7 +92,8 @@ public class MatrixController implements Initializable{
                     grade = compare.compareFiles(files.get(i-1), files.get(j-1));
                 }
                 else{
-                    grade = Collections.max(compare.compareFolders(files.get(i-1), files.get(j-1)));
+                    if(files.get(i-1).equals(files.get(j-1))) grade = 1.00;
+                    else grade = computeAvgGradeOfFolders(compare.compareFolders(files.get(i-1), files.get(j-1)));
                 }
                 Label gradeLabel = new Label(df.format(grade));
                 gradeLabel.setFont(new Font(15));
@@ -123,6 +124,16 @@ public class MatrixController implements Initializable{
         //InnerVBox.getChildren().add(theMatrix);
 
         //System.out.println(contentStack.getChildren());
+    }
+
+    public double computeAvgGradeOfFolders(ArrayList<Double> folderGrades){
+        Double sum = 0.0;
+        for(Double x : folderGrades){
+            //System.out.println(sum);
+            sum=sum+x;
+        }
+        //System.out.println(sum.doubleValue()/folderGrades.size());
+        return sum.doubleValue()/folderGrades.size();
     }
 
     public void setList(ListView selectedFiles){
