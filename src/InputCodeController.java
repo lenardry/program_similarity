@@ -20,6 +20,7 @@ public class InputCodeController {
     public Button submitButton;
     public AnchorPane inputCodeAnchorPane;
     public Label confirmationLabel;
+    public Button softwareMetricsBtn;
 
     public void onHomePress(ActionEvent actionEvent) throws IOException {
         AnchorPane thisPane = FXMLLoader.load(getClass().getResource("/MainMenu.fxml"));
@@ -46,5 +47,10 @@ public class InputCodeController {
         myWriter.write(codeInputField.getText());
         myWriter.close();
         confirmationLabel.setText("File created successfully!");
+    }
+
+    public void onSoftMetrPress(ActionEvent actionEvent) throws IOException {
+        AnchorPane inputCodesPane = FXMLLoader.load(getClass().getResource("/SoftwareMetrics.fxml"));
+        inputCodeAnchorPane.getChildren().setAll(inputCodesPane);
     }
 }

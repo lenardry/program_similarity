@@ -37,6 +37,7 @@ public class SimMatrixController implements Initializable {
     public Button selectFolderButton;
     public Button removeAllButton;
     public Label promptLabel;
+    public Button softwareMetricsBtn;
 
     public void onHomePress(ActionEvent actionEvent) throws IOException {
         AnchorPane thisPane = FXMLLoader.load(getClass().getResource("/MainMenu.fxml"));
@@ -130,5 +131,10 @@ public class SimMatrixController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         fileList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         selectedFiles.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+    }
+
+    public void onSoftMetrPress(ActionEvent actionEvent) throws IOException {
+        AnchorPane inputCodesPane = FXMLLoader.load(getClass().getResource("/SoftwareMetrics.fxml"));
+        simMatrixAnchorPane.getChildren().setAll(inputCodesPane);
     }
 }

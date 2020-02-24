@@ -27,6 +27,7 @@ public class SeeLibraryController {
     public TextArea code2Display;
     public TextField seeFileInput2;
     public Button selectFile2;
+    public Button softwareMetricsBtn;
 
     public void onHomePress(ActionEvent actionEvent) throws IOException {
         AnchorPane thisPane = FXMLLoader.load(getClass().getResource("/MainMenu.fxml"));
@@ -79,5 +80,10 @@ public class SeeLibraryController {
             code2Display.appendText(line);
             code2Display.appendText("\n");
         }
+    }
+
+    public void onSoftMetrPress(ActionEvent actionEvent) throws IOException {
+        AnchorPane inputCodesPane = FXMLLoader.load(getClass().getResource("/SoftwareMetrics.fxml"));
+        seeLibraryAnchorPane.getChildren().setAll(inputCodesPane);
     }
 }

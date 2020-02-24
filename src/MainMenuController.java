@@ -16,6 +16,7 @@ public class MainMenuController {
     public Button seeLibraryButton;
     public Button simMatrixButton;
     public AnchorPane mainAnchorPane;
+    public Button softwareMetricsBtn;
 
     public void onHomePress(ActionEvent actionEvent) throws IOException {
         AnchorPane thisPane = FXMLLoader.load(getClass().getResource("/MainMenu.fxml"));
@@ -35,5 +36,10 @@ public class MainMenuController {
     public void onSimMatrixPress(ActionEvent actionEvent) throws IOException {
         AnchorPane seeLibaryPane = FXMLLoader.load(getClass().getResource("/SimMatrix.fxml"));
         mainAnchorPane.getChildren().setAll(seeLibaryPane);
+    }
+
+    public void onSoftMetrPress(ActionEvent actionEvent) throws IOException {
+        AnchorPane inputCodesPane = FXMLLoader.load(getClass().getResource("/SoftwareMetrics.fxml"));
+        mainAnchorPane.getChildren().setAll(inputCodesPane);
     }
 }

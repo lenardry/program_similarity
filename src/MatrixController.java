@@ -40,6 +40,7 @@ public class MatrixController implements Initializable{
     public Label ghostLabel;
     public VBox InnerVBox;
     public ScrollPane contentScrollPane;
+    public Button softwareMetricsBtn;
     private GridPane theMatrix;
     private static DecimalFormat df = new DecimalFormat("0.00");
 
@@ -147,5 +148,10 @@ public class MatrixController implements Initializable{
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void onSoftMetrPress(ActionEvent actionEvent) throws IOException {
+        AnchorPane inputCodesPane = FXMLLoader.load(getClass().getResource("/SoftwareMetrics.fxml"));
+        matrixAnchorPane.getChildren().setAll(inputCodesPane);
     }
 }

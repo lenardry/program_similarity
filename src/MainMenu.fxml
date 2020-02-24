@@ -17,6 +17,7 @@
                   <Button fx:id="inputCodesButton" mnemonicParsing="false" onAction="#onInputPress" prefHeight="50.0" prefWidth="130.0" text="Input Codes" />
                   <Button fx:id="seeLibraryButton" mnemonicParsing="false" onAction="#onSeeLibrary" prefHeight="50.0" prefWidth="130.0" text="See Library" />
                   <Button fx:id="simMatrixButton" mnemonicParsing="false" onAction="#onSimMatrixPress" prefHeight="50.0" prefWidth="140.0" text="Similarity Matrix" />
+                  <Button fx:id="softwareMetricsBtn" layoutX="710.0" layoutY="35.0" mnemonicParsing="false" onAction="#onSoftMetrPress" prefHeight="50.0" prefWidth="140.0" text="Software Metrics" />
                </children>
             </HBox>
             <VBox alignment="CENTER" prefHeight="702.0" prefWidth="1000.0">
