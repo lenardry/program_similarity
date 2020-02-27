@@ -14,12 +14,12 @@ public class CompareCodeTest {
         grades.add(0.0);
         grades.add(0.1063993831919815);
 
-        assertEquals(compareCode.compareFolders("antoc-vicente", "coteok-portugal"), grades);
+        assertEquals(compareCode.compareFolders("C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\GitHubSubmissions", "antoc-vicente", "coteok-portugal"), grades);
     }
 
     @org.junit.Test
     public void compareFiles1() throws IOException {
         CompareCode compareCode = new CompareCode();
-        assertEquals(compareCode.compareFiles("Enghoy_main.java", "Enghoy_main.java"), 1.0, 1.0);
+        assertEquals(compareCode.compareFiles("C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\Submissions", "Enghoy_main.java", "Enghoy_main.java"), 1.0, 1.0);
     }
 }

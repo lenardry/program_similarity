@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
@@ -41,6 +42,7 @@ public class MatrixController implements Initializable{
     public VBox InnerVBox;
     public ScrollPane contentScrollPane;
     public Button softwareMetricsBtn;
+    public static String filePath;
     private GridPane theMatrix;
     private static DecimalFormat df = new DecimalFormat("0.00");
 
@@ -90,11 +92,11 @@ public class MatrixController implements Initializable{
         for(int i = 1; i<files.size()+1;i++){
             for(int j=1; j<files.size()+1; j++){
                 if((files.get(i-1).endsWith(".cpp") || (files.get(i-1).endsWith(".java") || (files.get(i-1).endsWith(".fxml"))))){
-                    grade = compare.compareFiles(files.get(i-1), files.get(j-1));
+                    grade = compare.compareFiles(filePath, files.get(i-1), files.get(j-1));
                 }
                 else{
                     if(files.get(i-1).equals(files.get(j-1))) grade = 1.00;
-                    else grade = computeAvgGradeOfFolders(compare.compareFolders(files.get(i-1), files.get(j-1)));
+                    else grade = computeAvgGradeOfFolders(compare.compareFolders(filePath, files.get(i-1), files.get(j-1)));
                 }
                 Label gradeLabel = new Label(df.format(grade));
                 gradeLabel.setFont(new Font(15));
@@ -140,6 +142,8 @@ public class MatrixController implements Initializable{
     public void setList(ListView selectedFiles){
         codes = selectedFiles.getItems();
     }
+
+    public void setPath(File selectedDirectory){ filePath = selectedDirectory.getAbsolutePath();}
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

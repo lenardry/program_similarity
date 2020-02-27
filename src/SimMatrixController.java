@@ -38,6 +38,7 @@ public class SimMatrixController implements Initializable {
     public Button removeAllButton;
     public Label promptLabel;
     public Button softwareMetricsBtn;
+    public File selectedDirectory;
 
     public void onHomePress(ActionEvent actionEvent) throws IOException {
         AnchorPane thisPane = FXMLLoader.load(getClass().getResource("/MainMenu.fxml"));
@@ -62,9 +63,12 @@ public class SimMatrixController implements Initializable {
     public void onSelectFolder(ActionEvent actionEvent) {
         DirectoryChooser chooser = new DirectoryChooser();
         chooser.setTitle("Select Folder");
+        /*
         File defaultDirectory = new File("C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1");
         chooser.setInitialDirectory(defaultDirectory);
-        File selectedDirectory = chooser.showDialog((Stage) simMatrixAnchorPane.getScene().getWindow());
+
+         */
+        selectedDirectory = chooser.showDialog((Stage) simMatrixAnchorPane.getScene().getWindow());
         getFilenames(selectedDirectory);
     }
 
@@ -92,6 +96,7 @@ public class SimMatrixController implements Initializable {
         promptLabel.setText("Processing...");
         MatrixController matrix = new MatrixController();
         matrix.setList(selectedFiles);
+        matrix.setPath(selectedDirectory);
         AnchorPane seeLibaryPane = FXMLLoader.load(getClass().getResource("/Matrix.fxml"));
         simMatrixAnchorPane.getChildren().setAll(seeLibaryPane);
         /*

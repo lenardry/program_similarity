@@ -59,6 +59,7 @@ public class CompareCode {
         String filename;
 
         System.out.println();
+        /*
         getGitFolders();
         for(int i = 0; i<gitFoldersList.size(); i++) {
             for (int j = 0; j < gitFoldersList.size(); j++) {
@@ -68,6 +69,8 @@ public class CompareCode {
             }
 
         }
+
+         */
 
         //getFilesInFolders(gitFoldersList.get(1));
 
@@ -116,9 +119,9 @@ public class CompareCode {
         }
     }
 
-    public ArrayList<Double> compareFolders(String folder1, String folder2) throws IOException {
-        File firstFolder = new File("C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\GitHubSubmissions\\" + folder1);
-        File secondFolder = new File("C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\GitHubSubmissions\\" + folder2);
+    public ArrayList<Double> compareFolders(String path, String folder1, String folder2) throws IOException {
+        File firstFolder = new File(path + "\\" + folder1);
+        File secondFolder = new File(path + "\\" + folder2);
         File[] fileList1 = firstFolder.listFiles();
         File[] fileList2 = secondFolder.listFiles();
         int x = 0;
@@ -126,7 +129,7 @@ public class CompareCode {
         ArrayList<Double> folderGrades = new ArrayList<>();
         for(int i = 0; i<fileList1.length; i++){
             for(int j = 0; j<fileList2.length; j++){
-                folderGrades = compareFiles(i, j, folderGrades, folder1, folder2, fileList1[i].getName(), fileList2[j].getName());
+                folderGrades = compareFiles(i, j, folderGrades, path, folder1, folder2, fileList1[i].getName(), fileList2[j].getName());
             }
             //grades[i][x]= Collections.max(folderGrades);
             //System.out.println(grades[i][x]);
@@ -136,10 +139,10 @@ public class CompareCode {
         return folderGrades;
     }
 
-    public ArrayList<Double> compareFiles(int i, int j, ArrayList<Double> folderGrades, String folder1, String folder2, String thisfile, String comparefile) throws IOException {
+    public ArrayList<Double> compareFiles(int i, int j, ArrayList<Double> folderGrades, String path, String folder1, String folder2, String thisfile, String comparefile) throws IOException {
 
-            String file1 = "C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\GitHubSubmissions\\" + folder1 + "\\" + thisfile;
-            String file2 = "C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\GitHubSubmissions\\" + folder2 + "\\" + comparefile;
+            String file1 = path + "\\" + folder1 + "\\" + thisfile;
+            String file2 = path + "\\" + folder2 + "\\" + comparefile;
             /*
             if (!codes.get(count).equals(myFile)) {
                 file2 = "C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\Submissions\\" + codes.get(count);
@@ -266,10 +269,10 @@ public class CompareCode {
         return folderGrades;
     }
 
-    public double compareFiles(String thisfile, String comparefile) throws IOException {
+    public double compareFiles(String path, String thisfile, String comparefile) throws IOException {
 
-        String file1 = "C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\Submissions\\" + thisfile;
-        String file2 = "C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\Submissions\\" + comparefile;
+        String file1 = path + "\\" + thisfile;
+        String file2 = path + "\\" + comparefile;
             /*
             if (!codes.get(count).equals(myFile)) {
                 file2 = "C:\\Users\\Lenard Llarenas\\IdeaProjects\\CP2Dcourse\\Module1\\Submissions\\" + codes.get(count);

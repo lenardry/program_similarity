@@ -224,6 +224,7 @@ public class SoftwareMetrics
             // checking for constants
             operands.addAll(extractConstants(line));
         }
+        /*
         System.out.println("Operators identified : ");
         for(String o : operators)
             System.out.println("\t"+o);
@@ -236,10 +237,15 @@ public class SoftwareMetrics
         System.out.println("Number of operators (N1) " + operators.size());
         System.out.println("Number of operands  (N2) " + operands.size());
 
+         */
+
         Map<String,Integer> uniqueOperators = SoftwareMetrics.getUniqueCount(operators);
         Map<String,Integer> uniqueOperands = SoftwareMetrics.getUniqueCount(operands);
+        /*
         System.out.println("Number of unique operators (n1) "+uniqueOperators.size());
         System.out.println("Number of unique operands (n2) "+uniqueOperands.size());
+
+         */
 
         metrics = displayMetrics(operators.size(),operands.size(),uniqueOperators.size(),uniqueOperands.size());
         reader.close();
