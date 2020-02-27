@@ -101,12 +101,14 @@ public class MatrixController implements Initializable{
                 Label gradeLabel = new Label(df.format(grade));
                 gradeLabel.setFont(new Font(15));
                 VBox root = new VBox();
+
                 if(grade==1.00) root.setStyle("-fx-background-color: #FF0000");
                 else if((grade>=0.75)&&(grade<1.00)) root.setStyle("-fx-background-color: #DC143C");
                 else if((grade>=0.50)&&(grade<0.75)) root.setStyle("-fx-background-color: #CD5C5C");
                 else if((grade>=0.25)&&(grade<0.50)) root.setStyle("-fx-background-color: #F08080");
                 else if((grade>0.0)&&(grade<0.25)) root.setStyle("-fx-background-color: #FA8072");
                 else if(grade==0.0) root.setStyle("-fx-background-color: #00FF00");
+
                 root.getChildren().add(gradeLabel);
                 theMatrix.add(root, i, j);
                 //System.out.println(theMatrix.getChildren());
